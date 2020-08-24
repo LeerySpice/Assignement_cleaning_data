@@ -28,6 +28,7 @@ DF <- data.frame(data=data, activity=label, subject=subject)
 
 # Step5. From the data set in step 4, creates a second, independent tidy data set
 # with the average of each variable for each activity and each subject 
+colnames(DF)[67] <- "activity"
 colnames(DF)[68] <- "subject"
 
 DFT <- c()
@@ -46,5 +47,8 @@ saveRDS(DFT, file = "./DF_tidy.rds") #Tidy data clean
 saveRDS(DF, file = "./DF_total.rds" ) # merged total DF
 
 Sys.time() - start.time
+write.table(DFT, file = "DFT.csv", row.names = FALSE)
 rm(list = ls())
+
+
 
